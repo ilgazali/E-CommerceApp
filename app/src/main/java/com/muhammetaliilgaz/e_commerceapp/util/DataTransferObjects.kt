@@ -6,7 +6,6 @@ import com.muhammetaliilgaz.e_commerceapp.data.model.Product
 import com.muhammetaliilgaz.e_commerceapp.data.model.ProductResponse
 
 
-
 fun List<ProductResponse>.asDatabaseModel(): List<Product> {
     return this.map {
         Product(category = it.category,

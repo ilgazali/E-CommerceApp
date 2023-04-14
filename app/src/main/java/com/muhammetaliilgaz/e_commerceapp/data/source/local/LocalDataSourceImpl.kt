@@ -2,9 +2,7 @@ package com.muhammetaliilgaz.e_commerceapp.data.source.local
 
 import androidx.lifecycle.LiveData
 import com.muhammetaliilgaz.e_commerceapp.data.model.Product
-import com.muhammetaliilgaz.e_commerceapp.di.CoroutineModule
 import com.muhammetaliilgaz.e_commerceapp.domain.datasource.local.LocalDataSource
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext

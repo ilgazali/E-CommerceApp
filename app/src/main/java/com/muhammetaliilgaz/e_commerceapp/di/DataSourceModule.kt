@@ -3,7 +3,7 @@ package com.muhammetaliilgaz.e_commerceapp.di
 import com.muhammetaliilgaz.e_commerceapp.data.repository.ProductRepositoryImpl
 import com.muhammetaliilgaz.e_commerceapp.data.source.local.LocalDataSourceImpl
 import com.muhammetaliilgaz.e_commerceapp.data.source.local.ProductDao
-import com.muhammetaliilgaz.e_commerceapp.data.source.remote.ProductApi
+import com.muhammetaliilgaz.e_commerceapp.data.source.remote.ECommerceApi
 import com.muhammetaliilgaz.e_commerceapp.data.source.remote.RemoteDataSourceImpl
 import com.muhammetaliilgaz.e_commerceapp.domain.datasource.local.LocalDataSource
 import com.muhammetaliilgaz.e_commerceapp.domain.datasource.remote.RemoteDataSource
@@ -23,7 +23,7 @@ object DataSourceModule {
 
     @Provides
     @Singleton //Authenticator will be added
-    fun provideRemoteDataSource(productApi: ProductApi): RemoteDataSource = RemoteDataSourceImpl(productApi)
+    fun provideRemoteDataSource(productApi: ECommerceApi): RemoteDataSource = RemoteDataSourceImpl(productApi)
 
 
     @Provides

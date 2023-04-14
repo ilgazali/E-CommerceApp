@@ -4,15 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import com.muhammetaliilgaz.e_commerceapp.R
-import com.muhammetaliilgaz.e_commerceapp.data.model.Product
-import com.muhammetaliilgaz.e_commerceapp.data.repository.ProductRepositoryImpl
+import com.muhammetaliilgaz.e_commerceapp.data.model.User
 import com.muhammetaliilgaz.e_commerceapp.databinding.ActivityMainBinding
-import com.muhammetaliilgaz.e_commerceapp.domain.repository.ProductRepository
-import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -20,9 +14,8 @@ class MainActivity : AppCompatActivity() {
 
     var binding : ActivityMainBinding? = null
 
+
     lateinit var viewModel: MainActivityViewModel
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,10 +25,14 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
-        viewModel.list.observe(this, Observer {
-            for(i in it){
-                println(i.imageThree)
-            }
+
+        val user = User("1111211111111","11111112111111","11111111211111","11111112111111","11111211111111")
+        viewModel.signup(user)
+
+        viewModel.crudResponse.observe(this,Observer{
+            println("=====================================")
+            println("TOKEN = ${it.data?.message}")
+            println("=====================================")
 
         })
     }

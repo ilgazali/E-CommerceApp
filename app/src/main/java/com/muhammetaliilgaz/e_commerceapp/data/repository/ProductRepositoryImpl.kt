@@ -1,9 +1,9 @@
 package com.muhammetaliilgaz.e_commerceapp.data.repository
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
+import com.muhammetaliilgaz.e_commerceapp.data.model.CRUDResponse
 import com.muhammetaliilgaz.e_commerceapp.data.model.Product
-import com.muhammetaliilgaz.e_commerceapp.data.model.ProductResponse
+import com.muhammetaliilgaz.e_commerceapp.data.model.User
 import com.muhammetaliilgaz.e_commerceapp.domain.datasource.local.LocalDataSource
 import com.muhammetaliilgaz.e_commerceapp.domain.datasource.remote.RemoteDataSource
 import com.muhammetaliilgaz.e_commerceapp.domain.repository.ProductRepository
@@ -42,6 +42,10 @@ class ProductRepositoryImpl @Inject constructor(private val remoteDataSource: Re
 
     return localDataSource.getProductsFromDatabase()
 
+    }
+
+    override suspend fun signUpUser(user: User): Resource<CRUDResponse> {
+        return remoteDataSource.signup(user)
     }
 
 

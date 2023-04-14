@@ -1,6 +1,6 @@
 package com.muhammetaliilgaz.e_commerceapp.di
 
-import com.muhammetaliilgaz.e_commerceapp.data.source.remote.ProductApi
+import com.muhammetaliilgaz.e_commerceapp.data.source.remote.ECommerceApi
 import com.muhammetaliilgaz.e_commerceapp.util.Constants
 import dagger.Module
 import dagger.Provides
@@ -15,9 +15,9 @@ import javax.inject.Singleton
 object RetrofitModule {
     @Provides
     @Singleton
-    fun provideProductService(): ProductApi = Retrofit.Builder()
+    fun provideProductService(): ECommerceApi = Retrofit.Builder()
         .baseUrl(Constants.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-        .create(ProductApi::class.java)
+        .create(ECommerceApi::class.java)
 }
